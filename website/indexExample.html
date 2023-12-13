@@ -14,7 +14,7 @@
     <script>
         function search() {
             var query = document.getElementById('searchQuery').value;
-            fetch('/search?q=' + query)
+            fetch('search?q=' + query)
                 .then(response => response.json())
                 .then(data => {
                     var resultsDiv = document.getElementById('results');

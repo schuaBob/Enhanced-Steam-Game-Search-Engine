@@ -1,27 +1,22 @@
 [
     {
         "title": "Result 1",
-        "description": "This is the description for Result 1. It's a fascinating article about various topics.",
-        "url": "https://www.example.com/result1"
+        "description": "This is the description for Result 1. It's a fascinating article about various topics."
     },
     {
         "title": "Result 2",
-        "description": "Result 2 offers insights into different subjects. Learn more about them here.",
-        "url": "https://www.example.com/result2"
+        "description": "Result 2 offers insights into different subjects. Learn more about them here."
     },
     {
         "title": "Result 3",
-        "description": "Discover the wonders of Result 3, covering a range of interesting themes and ideas.",
-        "url": "https://www.example.com/result3"
+        "description": "Discover the wonders of Result 3, covering a range of interesting themes and ideas."
     },
     {
         "title": "Result 4",
-        "description": "Explore Result 4, a comprehensive guide to various important topics and discussions.",
-        "url": "https://www.example.com/result4"
+        "description": "Explore Result 4, a comprehensive guide to various important topics and discussions."
     },
     {
         "title": "Result 5",
-        "description": "Result 5: An in-depth look at some of the most intriguing subjects in our current times.",
-        "url": "https://www.example.com/result5"
+        "description": "Result 5: An in-depth look at some of the most intriguing subjects in our current times."
     }
 ]
