@@ -40,9 +40,8 @@
               .then(response => response.json())
               .then(data => {
                   var resultsDiv = document.getElementById('results');
-                  resultsDiv.innerHTML = '';  // 清空现有内容
+                  resultsDiv.innerHTML = ''; 
                   data.forEach(item => {
-                      // 显示每个搜索结果
                       resultsDiv.innerHTML += '<p>' + item.game_name + ': ' + item.game_desc + ' (Score: ' + item.score + ')</p>';
                   });
               });
