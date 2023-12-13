@@ -54,7 +54,7 @@
     </div>
     <script>
       function searchForItem() {
-        var query = document.getElementById("search").value;
+        var query = document.getElementById("searchInput").value;
         var url = "http://localhost:5000/search?q=/" + encodeURIComponent(query); // Corrected fetch URL
 
         fetch(url, {
