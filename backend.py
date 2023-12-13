@@ -4,7 +4,7 @@ from indexing.IndexReader import MyIndexReader
 app = Flask(__name__)
 indexReader = MyIndexReader()
 
-@app.route("/search/<query>")
+@app.route("/search?q=<query>")
 def search(query):
     myquery = indexReader.parser.parse(query.strip().lower())
     result = indexReader.searcher.search(myquery)
