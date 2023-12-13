@@ -10,8 +10,9 @@ class MyIndexReader:
             self.parser = QueryParser("game_desc", schema=myindex.schema, group=OrGroup)
         if parser_type == "multi":
             fieldsboots = {
-                "game_name":0.3,
-                "game_desc":0.7,
+                "game_name":0.2,
+                "game_desc":0.6,
+                "tags":0.2,
             }
             fields = list(fieldsboots.keys())
             self.parser = MultifieldParser(fields, schema=myindex.schema, group=OrGroup, fieldboosts=fieldsboots)

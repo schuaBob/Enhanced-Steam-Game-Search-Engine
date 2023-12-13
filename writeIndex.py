@@ -9,6 +9,6 @@ if __name__ == "__main__":
     with open(data_file) as f:
         data = json.load(f)
     for game in tqdm(data):
-        indexWriter.index(game_name=game["name"], game_desc=game["desc"])
+        indexWriter.index(game_name=game["name"], game_desc=game["desc"], tags=game.get('popu_tags',[]))
     indexWriter.close()
     print("Indexing done")
