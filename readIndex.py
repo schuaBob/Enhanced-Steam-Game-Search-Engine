@@ -7,4 +7,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     # can be "single" or "multi"
     indexReader = MyIndexReader(args.parser_type)
-    indexReader.search(args.query)
+    result = indexReader.search(args.query)
+
+    for res in result:
+        print(f"name: {res['game_name']}, score:{res.score}")
