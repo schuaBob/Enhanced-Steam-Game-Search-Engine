@@ -16,4 +16,4 @@ def search(query):
             'game_desc': res['game_desc'],
             'score': res.score
         })
-    return f"<p>Result: {list_dicts}</p>"
+    return list_dicts
