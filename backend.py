@@ -1,11 +1,14 @@
-from flask import Flask
+from flask import Flask, jsonify, request
 from indexing.IndexReader import MyIndexReader
+from flask_cors import CORS
 
 app = Flask(__name__)
 indexReader = MyIndexReader()
+CORS(app)
 
-@app.route("/search?q=<query>")
-def search(query):
+@app.route("/search")
+def search():
+    query = request.args.get('q')
     myquery = indexReader.parser.parse(query.strip().lower())
     result = indexReader.searcher.search(myquery)
     print(f"query: {myquery.all_terms()}")
@@ -16,4 +19,4 @@ def search(query):
             'game_desc': res['game_desc'],
             'score': res.score
         })
-    return list_dicts
+    return jsonify(list_dicts)
