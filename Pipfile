@@ -9,6 +9,7 @@ tqdm = "*"
 whoosh = "*"
 nltk = "*"
 flask = "*"
+flask-cors = "*"
 
 [dev-packages]
 
