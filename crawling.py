@@ -31,8 +31,9 @@ for game in tqdm(data):
         game['desc'] = ' '.join(filtered_sentence)
         game['normal_desc'] = ' '.join(normal_sentence)
         game['type'] = game['full_desc'].get('sort', '')
-        if len(game['name']) ==0 or len(game['desc'])==0:
+        if not isinstance(game['name'], str) or len(game['name']) == 0 or len(game['desc']) == 0:
             print(game)
+            continue
     except Exception as e:
         print(f"Error: {e}")
         print(game)
