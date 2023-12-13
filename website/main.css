@@ -301,7 +301,7 @@ fieldset {
 legend {
   box-sizing: border-box;
   /* 1 */
-  color: inherit;
+  color: black;
   /* 2 */
   display: table;
   /* 1 */
@@ -465,13 +465,14 @@ legend {
   margin-bottom: 0;
 }
 
-.choices.is-disabled .choices__inner, .choices.is-disabled .choices__input {
-  background-color: #EAEAEA;
+.choices.is-disabled .choices__inner,
+.choices.is-disabled .choices__input {
+  background-color: #eaeaea;
   cursor: not-allowed;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .choices.is-disabled .choices__item {
@@ -490,8 +491,8 @@ legend {
   display: block;
   width: 100%;
   padding: 10px;
-  border-bottom: 1px solid #DDDDDD;
-  background-color: #FFFFFF;
+  border-bottom: 1px solid #dddddd;
+  background-color: #ffffff;
   margin: 0;
 }
 
@@ -508,15 +509,16 @@ legend {
   height: 20px;
   width: 20px;
   border-radius: 10em;
-  opacity: .5;
+  opacity: 0.5;
 }
 
-.choices[data-type*="select-one"] .choices__button:hover, .choices[data-type*="select-one"] .choices__button:focus {
+.choices[data-type*="select-one"] .choices__button:hover,
+.choices[data-type*="select-one"] .choices__button:focus {
   opacity: 1;
 }
 
 .choices[data-type*="select-one"] .choices__button:focus {
-  box-shadow: 0px 0px 0px 2px #00BCD4;
+  box-shadow: 0px 0px 0px 2px #00bcd4;
 }
 
 .choices[data-type*="select-one"]:after {
@@ -550,11 +552,13 @@ legend {
   margin-right: 0;
 }
 
-.choices[data-type*="select-multiple"] .choices__inner, .choices[data-type*="text"] .choices__inner {
+.choices[data-type*="select-multiple"] .choices__inner,
+.choices[data-type*="text"] .choices__inner {
   cursor: text;
 }
 
-.choices[data-type*="select-multiple"] .choices__button, .choices[data-type*="text"] .choices__button {
+.choices[data-type*="select-multiple"] .choices__button,
+.choices[data-type*="text"] .choices__button {
   position: relative;
   display: inline-block;
   margin-top: 0;
@@ -567,10 +571,13 @@ legend {
   background-size: 8px;
   width: 8px;
   line-height: 1;
-  opacity: .75;
+  opacity: 0.75;
 }
 
-.choices[data-type*="select-multiple"] .choices__button:hover, .choices[data-type*="select-multiple"] .choices__button:focus, .choices[data-type*="text"] .choices__button:hover, .choices[data-type*="text"] .choices__button:focus {
+.choices[data-type*="select-multiple"] .choices__button:hover,
+.choices[data-type*="select-multiple"] .choices__button:focus,
+.choices[data-type*="text"] .choices__button:hover,
+.choices[data-type*="text"] .choices__button:focus {
   opacity: 1;
 }
 
@@ -580,14 +587,15 @@ legend {
   width: 100%;
   background-color: #f9f9f9;
   padding: 7.5px 7.5px 3.75px;
-  border: 1px solid #DDDDDD;
+  border: 1px solid #dddddd;
   border-radius: 2.5px;
   font-size: 14px;
   min-height: 44px;
   overflow: hidden;
 }
 
-.is-focused .choices__inner, .is-open .choices__inner {
+.is-focused .choices__inner,
+.is-open .choices__inner {
   border-color: #b7b7b7;
 }
 
@@ -633,9 +641,9 @@ legend {
   font-weight: 500;
   margin-right: 3.75px;
   margin-bottom: 3.75px;
-  background-color: #00BCD4;
+  background-color: #00bcd4;
   border: 1px solid #00a5bb;
-  color: #FFFFFF;
+  color: #ffffff;
   word-break: break-all;
 }
 
@@ -663,8 +671,8 @@ legend {
   z-index: 1;
   position: absolute;
   width: 100%;
-  background-color: #FFFFFF;
-  border: 1px solid #DDDDDD;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
   top: 100%;
   margin-top: -1px;
   border-bottom-left-radius: 2.5px;
@@ -686,7 +694,7 @@ legend {
   bottom: 100%;
   margin-top: 0;
   margin-bottom: -1px;
-  border-radius: .25rem .25rem 0 0;
+  border-radius: 0.25rem 0.25rem 0 0;
 }
 
 .choices__list--dropdown .choices__list {
@@ -736,7 +744,7 @@ legend {
 }
 
 .choices__list--dropdown .choices__item--selectable.is-highlighted:after {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .choices__item {
@@ -750,10 +758,10 @@ legend {
 .choices__item--disabled {
   cursor: not-allowed;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  opacity: .5;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  opacity: 0.5;
 }
 
 .choices__heading {
@@ -768,7 +776,7 @@ legend {
   text-indent: -9999px;
   -webkit-appearance: none;
   -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   border: 0;
   background-color: transparent;
   background-repeat: no-repeat;
@@ -802,7 +810,7 @@ legend {
 }
 
 .choices__placeholder {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 /*=====  End of Choices  ======*/
@@ -815,11 +823,11 @@ legend {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
-      justify-content: center;
+  justify-content: center;
   -ms-flex-align: center;
-      align-items: center;
-  font-family: 'Poppins', sans-serif;
-  background: url("images/game.jpg");
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  background: url("images/5667001.png");
   background-size: cover;
   background-position: center center;
   padding: 15px;
@@ -832,7 +840,7 @@ legend {
 
 .search-page form legend {
   font-size: 36px;
-  color: #fff;
+  color: black;
   font-weight: 800;
   text-align: center;
   margin-bottom: 59px;
@@ -878,7 +886,8 @@ legend {
   font-size: 18px;
 }
 
-.search-page form .inner-form .input-field input:hover, .search-page form .inner-form .input-field input:focus {
+.search-page form .inner-form .input-field input:hover,
+.search-page form .inner-form .input-field input:focus {
   box-shadow: none;
   outline: 0;
 }
@@ -888,7 +897,7 @@ legend {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
-      align-items: center;
+  align-items: center;
   position: absolute;
   left: 0;
   height: 100%;
@@ -898,7 +907,7 @@ legend {
   cursor: pointer;
   display: flex;
   -ms-flex-pack: center;
-      justify-content: center;
+  justify-content: center;
   align-items: center;
 }
 
@@ -906,15 +915,17 @@ legend {
   fill: #ccc;
   width: 30px;
   height: 30px;
-  transition: all .2s ease-out, color .2s ease-out;
+  transition: all 0.2s ease-out, color 0.2s ease-out;
 }
 
-.search-page form .inner-form .input-field .btn-search:hover, .search-page form .inner-form .input-field .btn-search:focus {
+.search-page form .inner-form .input-field .btn-search:hover,
+.search-page form .inner-form .input-field .btn-search:focus {
   outline: 0;
   box-shadow: none;
 }
 
-.search-page form .inner-form .input-field .btn-search:hover svg, .search-page form .inner-form .input-field .btn-search:focus svg {
+.search-page form .inner-form .input-field .btn-search:hover svg,
+.search-page form .inner-form .input-field .btn-search:focus svg {
   fill: #666;
 }
 
@@ -924,7 +935,7 @@ legend {
 
 .search-page form .suggestion-wrap span {
   font-size: 14px;
-  font-family: 'Helvetica', sans-serif;
+  font-family: "Helvetica", sans-serif;
   display: inline-block;
   background: rgba(0, 0, 0, 0.6);
   padding: 0 15px;
@@ -950,3 +961,10 @@ legend {
   }
 }
 
+p {
+  font-size: 20px;
+  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 16px;
+}

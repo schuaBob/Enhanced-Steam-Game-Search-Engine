@@ -3,56 +3,93 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,800"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
     <link href="main.css" rel="stylesheet" />
     <title>Steam Advance Game Search Page</title>
   </head>
   <body>
     <div class="search-page">
       <form>
-        <fieldset>
           <legend>Search Games you're interested in!</legend>
           <div class="inner-form">
-            <div class="input-field">
-              <button class="btn-search" type="button" onclick="query()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-                </svg>
-              </button>
-              <input id="search" type="text" placeholder="Search Games Here" onkeyup="searchForItemUsingEnterKey()"/>
+            <div class="columns mt-2">
+              <div class="column is-four-fifths">
+                <input
+                  type="text"
+                  id="searchInput"
+                  class="input is-rounded"
+                  placeholder="Enter search text, then press the Search button"
+                  maxlength="255"
+                  onkeyup="searchForItemUsingEnterKey()"
+                />
+              </div>
+              <div class="column is-one-fifth">
+                <button
+                  type="button"
+                  onclick="searchForItem()"
+                  class="button is-primary is-rounded"
+                >
+                  Search
+                </button>
+              </div>
             </div>
           </div>
-          <div class="suggestion-wrap">
-            <span>New Arrivals</span>
-            <span>VR</span>
-            <span>Multiplayer</span>
-            <span>Action</span>
-            <span>Dark Souls III</span>
+
+          <label for="orderMode">Order by Score: </label>
+          <div class="select is-primary is-rounded is-small">
+            <select id="orderMode" name="orderMode">
+              <option value="Ascending" selected="selected">Ascending</option>
+              <option value="descending">Descending</option>
+            </select>
           </div>
         </fieldset>
       </form>
     </div>
     <script>
-      function query() {
-          var query = document.getElementById('search').value;
-          fetch('http://localhost:5000/search?q=' + encodeURIComponent(query))
+      function searchForItem() {
+        var query = document.getElementById("search").value;
+        var url = "http://localhost:5000/search?q=/" + encodeURIComponent(query); // Corrected fetch URL
 
-              .then(response => response.json())
-              .then(data => {
-                  var resultsDiv = document.getElementById('results');
-                  resultsDiv.innerHTML = ''; 
-                  data.forEach(item => {
-                      resultsDiv.innerHTML += '<p>' + item.game_name + ': ' + item.game_desc + ' (Score: ' + item.score + ')</p>';
-                  });
-              });
-    }
-      function searchForItemUsingEnterKey() {
-            // Less wasteful to obtain the search text only when Enter is pressed, rather than always passing in a parameter which usually gets discarded anyway
-            if (window.event.key == "Enter") {
-              searchForItem();
+        fetch(url, {
+          method: "GET",
+          mode: "cors",
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
             }
+            return response.json();
+          })
+          .then((data) => {
+            var resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "";
+            data.forEach((item) => {
+              resultsDiv.innerHTML += `<p>${item.game_name}: ${item.game_desc} (Score: ${item.score})</p>`;
+            });
+          })
+          .catch((error) => {
+            console.error("Fetch Error:", error);
+          });
+      }
+      function searchForItemUsingEnterKey() {
+        // Less wasteful to obtain the search text only when Enter is pressed, rather than always passing in a parameter which usually gets discarded anyway
+        if (window.event.key == "Enter") {
+          searchForItem();
         }
-  </script>
-  <div id="results"></div>
+      }
+    </script>
+    <div id="results">
+      <p>hellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the result</p>
+      <p>I'm for testing</p>
+      <p>I'm for testing</p>
+      <p>I'm for testing</p>
+    </div>
   </body>
 </html>
