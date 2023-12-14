@@ -6,4 +6,4 @@
 # Run website
 1. npm init -y
 2. npm install express
-3. node exampleServer.js
+3. open ./website/index.html in browser
