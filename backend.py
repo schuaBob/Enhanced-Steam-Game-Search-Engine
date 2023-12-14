@@ -7,6 +7,8 @@ CORS(app)
 
 @app.route("/search")
 def search():
+    parser_type = request.args.get('parser_type')
+    indexReader = MyIndexReader(parser_type=parser_type)
     query = request.args.get('q')
     # can be "single" or "multi"
     parser_type = request.args.get('parser_type', "multi")

@@ -45,17 +45,27 @@
           <label for="orderMode">Order by Score: </label>
           <div class="select is-primary is-rounded is-small">
             <select id="orderMode" name="orderMode">
-              <option value="Ascending" selected="selected">Ascending</option>
+              <option value="ascending" selected="selected">Ascending</option>
               <option value="descending">Descending</option>
             </select>
           </div>
-        </fieldset>
+
+          <label for="parserType">Parser Type: </label>
+          <div class="select is-primary is-rounded is-small">
+            <select id="parserType" name="parserType">
+              <option value="multi" selected="selected">Game Name and Description</option>
+              <option value="single">Only Game Description</option>
+            </select>
+          </div>
+        
       </form>
     </div>
     <script>
       function searchForItem() {
         var query = document.getElementById("searchInput").value;
-        var url = "http://localhost:5000/search?q=/" + encodeURIComponent(query); // Corrected fetch URL
+        var pType = document.getElementById("parserType").value;
+        var order = document.getElementById("orderMode").value;
+        var url = "http://localhost:5000/search?parser_type=" + pType + "&q=" + encodeURIComponent(query); // Corrected fetch URL
 
         fetch(url, {
           method: "GET",
@@ -70,8 +80,11 @@
           .then((data) => {
             var resultsDiv = document.getElementById("results");
             resultsDiv.innerHTML = "";
+            if (order === "ascending") {
+                data.sort((a, b) => a.score - b.score);
+            }
             data.forEach((item) => {
-              resultsDiv.innerHTML += `<p>${item.game_name}: ${item.game_desc} (Score: ${item.score})</p>`;
+              resultsDiv.innerHTML += `<h3>${item.game_name}: </h3>' + '<p>${item.game_name}: ${item.game_desc}</p>' + '<p> (Score: ${item.score})</p>`;
             });
           })
           .catch((error) => {
@@ -86,10 +99,6 @@
       }
     </script>
     <div id="results">
-      <p>hellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the resulthellow I'm the result</p>
-      <p>I'm for testing</p>
-      <p>I'm for testing</p>
-      <p>I'm for testing</p>
     </div>
   </body>
 </html>
