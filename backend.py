@@ -3,11 +3,12 @@ from indexing.IndexReader import MyIndexReader
 from flask_cors import CORS
 
 app = Flask(__name__)
-indexReader = MyIndexReader()
 CORS(app)
 
 @app.route("/search")
 def search():
+    parser_type = request.args.get('parser_type')
+    indexReader = MyIndexReader(parser_type=parser_type)
     query = request.args.get('q')
     myquery = indexReader.parser.parse(query.strip().lower())
     result = indexReader.searcher.search(myquery)
