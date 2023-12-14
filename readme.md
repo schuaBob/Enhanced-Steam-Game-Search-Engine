@@ -4,6 +4,4 @@
 3. flask --app backend run
 
 # Run website
-1. npm init -y
-2. npm install express
-3. open ./website/index.html in browser
+1. open ./website/index.html in browser
