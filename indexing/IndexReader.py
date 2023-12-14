@@ -10,16 +10,14 @@ class MyIndexReader:
             self.parser = QueryParser("game_desc", schema=myindex.schema, group=OrGroup)
         if parser_type == "multi":
             fieldsboots = {
-                "game_name":0.3,
-                "game_desc":0.7,
+                "game_name":0.2,
+                "game_desc":0.6,
+                "tags":0.2,
             }
             fields = list(fieldsboots.keys())
             self.parser = MultifieldParser(fields, schema=myindex.schema, group=OrGroup, fieldboosts=fieldsboots)
     def search(self, query:str):
         myquery = self.parser.parse(query.strip().lower())
-        result = self.searcher.search(myquery)
         print(f"query: {myquery.all_terms()}")
-        for res in result:
-            print(f"name: {res['game_name']}, score:{res.score}")
-            # print(res['game_desc'])
+        return self.searcher.search(myquery)
     

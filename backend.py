@@ -10,9 +10,11 @@ def search():
     parser_type = request.args.get('parser_type')
     indexReader = MyIndexReader(parser_type=parser_type)
     query = request.args.get('q')
-    myquery = indexReader.parser.parse(query.strip().lower())
-    result = indexReader.searcher.search(myquery)
-    print(f"query: {myquery.all_terms()}")
+    # can be "single" or "multi"
+    parser_type = request.args.get('parser_type', "multi")
+    indexReader = MyIndexReader(parser_type=parser_type)
+    result = indexReader.search(query)
+    print(f"query: {query.all_terms()}")
     list_dicts = []
     for res in result:
         list_dicts.append({
